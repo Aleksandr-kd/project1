@@ -7,22 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class First {
-    String SITE_URL = "https://mail.ru/";
-    WebDriver driver;
-
-    @BeforeEach
-    public void start(){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    }
-
-    @AfterEach
-    public void finish(){
-        driver.quit();
-    }
+public class First extends TestBase{
 
     @Test
     public void firstTest(){
