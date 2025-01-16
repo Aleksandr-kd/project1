@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class First {
     String SITE_URL = "https://mail.ru/";
     WebDriver driver;
@@ -13,7 +15,8 @@ public class First {
     public void start(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        System.out.println("Before each");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @AfterEach
