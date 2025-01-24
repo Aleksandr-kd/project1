@@ -25,6 +25,8 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         main = PageFactory.initElements(driver, Main.class);
         taskOne = PageFactory.initElements(driver, TaskOne.class);
+
+
     }
 
     @AfterEach
