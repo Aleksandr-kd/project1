@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import page.Main;
-import page.TaskOne;
+//import page.TaskOne;
 import page.TaskSix;
 
 import java.util.concurrent.TimeUnit;
@@ -18,7 +18,7 @@ public class TestBase {
 
     public WebDriver driver;
     public Main main;
-    public TaskOne taskOne;
+//    public TaskOne taskOne;
     public TaskSix taskSix;
 
     @BeforeEach
@@ -28,7 +28,7 @@ public class TestBase {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         main = PageFactory.initElements(driver, Main.class);
-        taskOne = PageFactory.initElements(driver, TaskOne.class);
+//        taskOne = PageFactory.initElements(driver, TaskOne.class);
         taskSix = PageFactory.initElements(driver, TaskSix.class);
 
 

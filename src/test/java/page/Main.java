@@ -8,7 +8,7 @@ import static java.lang.Thread.sleep;
 
 public class Main extends BasePage {
     String SITE_URL_1 = "https://otus.home.kartushin.su/training.html";
-    String SITE_URL_2 = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
+    String SITE_URL_2 = "https://opensource-demo.orangehrmlive.com";
 
     public Main(WebDriver driver) {
         super(driver);
@@ -24,17 +24,17 @@ public class Main extends BasePage {
         return this;
     }
 
-    public Main logIn() {
-        WebElement name = driver.findElement(By.xpath("//input[@name='username']"));
-        name.sendKeys("Admin");
-        WebElement password = driver.findElement(By.xpath("//input[@name='password']"));
-        password.sendKeys("admin123");
-        WebElement submit = driver.findElement(By.xpath("//button[@type='submit']"));
-        submit.click();
-        return this;
-
-
-    }
+//    public Main logIn() {
+//        WebElement name = driver.findElement(By.xpath("//input[@name='username']"));
+//        name.sendKeys("Admin");
+//        WebElement password = driver.findElement(By.xpath("//input[@name='password']"));
+//        password.sendKeys("admin123");
+//        WebElement submit = driver.findElement(By.xpath("//button[@type='submit']"));
+//        submit.click();
+//        return this;
+//
+//
+//    }
 }
 
 
