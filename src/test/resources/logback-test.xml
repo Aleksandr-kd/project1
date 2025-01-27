@@ -1,0 +1,11 @@
+<configuration debug="false">
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">  //info? error и т.д. это уровень ошибки (логирование)
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
