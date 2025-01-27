@@ -1,9 +1,11 @@
 package page;
 
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import static java.lang.Thread.sleep;
 
@@ -54,4 +56,15 @@ public class TaskSix extends BasePage {
         isElementDisplayed(By.cssSelector("input[name='password']"));
         isElementDisplayed(By.cssSelector("button[type='submit']"));
         return this;   }
+
+
+    // навести мышь на элемент
+    public void testMenuMouseMove(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(driver.findElement(By.className("caret"))).build().perform();
+        actions.moveToElement(driver.findElement(By.className("caret2"))).build().perform();
+        driver.findElement(By.id("start")).click();
+
+
+    }
 }

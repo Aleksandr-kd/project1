@@ -42,7 +42,7 @@ public class BasePage {
         waitVisibility(elementBy);  // находит элемент
         WebElement element = driver.findElement(elementBy);
         element.clear();
-        element.click();
+        element.sendKeys(""); // индусы так делают, чтобы подождать
         element.sendKeys(text);
     }
 
