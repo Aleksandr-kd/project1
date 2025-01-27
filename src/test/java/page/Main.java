@@ -7,14 +7,20 @@ import org.openqa.selenium.WebElement;
 import static java.lang.Thread.sleep;
 
 public class Main extends BasePage {
-    String SITE_URL = "https://opensource-demo.orangehrmlive.com";
+    String SITE_URL_1 = "https://otus.home.kartushin.su/training.html";
+    String SITE_URL_2 = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
 
     public Main(WebDriver driver) {
         super(driver);
     }
 
     public Main goTo() {
-        driver.get(SITE_URL);
+        driver.get(SITE_URL_1);
+        return this;
+    }
+
+    public Main goToOpensource() {
+        driver.get(SITE_URL_2);
         return this;
     }
 
