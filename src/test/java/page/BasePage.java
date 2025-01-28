@@ -8,8 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-import static org.junit.jupiter.api.Assertions.assertLinesMatch;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BasePage {
     public WebDriver driver;
@@ -25,7 +24,7 @@ public class BasePage {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));
     }
 
-    //Click Method
+    //Click Method by WebElement
     public void click(By elementBy) {
         waitVisibility(elementBy);
         driver.findElement(elementBy).click();
@@ -36,6 +35,16 @@ public class BasePage {
         waitVisibility(elementBy);
         assertTrue(driver.findElement(elementBy).isDisplayed());   //асерт проверяет в скобках тру или нет, если нет тест упайдет
     }
+
+    //    Is Element NOT Displayed
+    public void isElementNotDisplayed(By elementBy) {
+        assertTrue(driver.findElements(elementBy).isEmpty());
+    }
+
+    public void isAlertText(String message) {
+        assertEquals(message, driver.switchTo().alert().getText());
+    }
+
 
     // write text in field located By
     public void writeText(By elementBy, String text) {

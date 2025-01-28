@@ -5,38 +5,37 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.PageFactory;
 import page.Main;
-//import page.TaskOne;
-import page.TaskOne;
-import page.TaskSix;
+import page.Task;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 
 public class TestBase {
 
+    public static ChromeOptions ChromeOptions;
     public WebDriver driver;
     public Main main;
-//    public TaskOne taskOne;
-    public TaskSix taskSix;
+    public Task user;
 
     @BeforeEach
-    public void start(){
+    public void initialization() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+//        options.setHeadless(true);
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         main = PageFactory.initElements(driver, Main.class);
-        taskOne = PageFactory.initElements(driver, TaskOne.class);
-        taskSix = PageFactory.initElements(driver, TaskSix.class);
+        user = PageFactory.initElements(driver, Task.class);
 
 
     }
 
     @AfterEach
-    public void finish(){
+    public void finish() {
         driver.quit();
     }
 

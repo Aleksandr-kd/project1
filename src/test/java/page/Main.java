@@ -1,23 +1,15 @@
 package page;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import static java.lang.Thread.sleep;
 
 public class Main extends BasePage {
-    String SITE_URL_1 = "https://otus.home.kartushin.su/training.html";
-    String SITE_URL_2 = "https://opensource-demo.orangehrmlive.com";
+    final String SITE_URL_1 = "https://the-internet.herokuapp.com/";   // final означает что нельзя переопределить
+    final String SITE_URL_2 = "https://opensource-demo.orangehrmlive.com";
 
     public Main(WebDriver driver) {
         super(driver);
     }
 
-    public Main goTo() {
-        driver.get(SITE_URL_1);
-        return this;
-    }
 
     public Main goToOpensource() {
         driver.get(SITE_URL_2);
