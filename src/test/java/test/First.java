@@ -9,7 +9,7 @@ public class First extends TestBase {
 //        main.goTo().logIn();
 
 
-//        taskOne.checkPageIsCorrect();
+        taskOne.checkPageIsCorrect();
 
 
 //        Thread.sleep(4000);
