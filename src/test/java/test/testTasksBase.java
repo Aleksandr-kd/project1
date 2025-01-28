@@ -8,17 +8,17 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.PageFactory;
 import page.Main;
-import page.Task;
+import page.testTask;
 
 import java.time.Duration;
 
 
-public class TestBase {
+public class testTasksBase {
 
     public static ChromeOptions ChromeOptions;
     public WebDriver driver;
     public Main main;
-    public Task user;
+    public testTask user;
 
     @BeforeEach
     public void initialization() {
@@ -29,7 +29,7 @@ public class TestBase {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         main = PageFactory.initElements(driver, Main.class);
-        user = PageFactory.initElements(driver, Task.class);
+        user = PageFactory.initElements(driver, testTask.class);
 
 
     }

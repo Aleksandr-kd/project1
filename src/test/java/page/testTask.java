@@ -1,47 +1,66 @@
 package page;
 
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import static java.lang.Thread.sleep;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class Task extends BasePage {
-    public Task(WebDriver driver) {
+public class testTask extends BasePage {
+    public testTask(WebDriver driver) {
         super(driver);
     }
 
-    public Task fillInLogin(String login) throws InterruptedException {
+    public testTask fillInLogin(String login) {
         writeText(By.cssSelector("input[name='username']"), login);
         return this;
     }
 
-    public Task fillInPassword(String password) {
+    public testTask fillInPassword(String password) {
         writeText(By.cssSelector("input[name='password']"), password);
         return this;
 
     }
 
-    public Task loginButtonClick() {
+    public testTask loginButtonClick() {
         click(By.cssSelector("button[type='submit']"));
         return this;
 
     }
 
-    public Task isLoginCorrect() {              //асерт проверяет в скобках тру или нет, если нет тест упайдет
+    public testTask isLoginCorrect() {              //асерт проверяет в скобках тру или нет, если нет тест упайдет
         isElementDisplayed(By.linkText("Dashboard"));
         return this;
 
     }
 
 
-    public Task checkAllElementsOnPagePresent() {
+    public testTask checkAllElementsOnPagePresent() {
         isElementDisplayed(By.cssSelector("input[name='username']"));
         isElementDisplayed(By.cssSelector("input[name='password']"));
         isElementDisplayed(By.cssSelector("button[type='submit']"));
         return this;
+    }
+
+    //Drag and drop. перетаскивание
+    public void addProductWithDragAndDrop() {
+        driver.findElement(By.linkText("Drag and Drop")).click();
+        WebElement columnA = driver.findElement(By.cssSelector("column-a"));
+//        fieldProductNumber.sendKeys("2");
+
+        WebElement columnB = driver.findElement(By.cssSelector("column-b"));
+//        WebElement basket = driver.findElement(By.cssSelector(".panel-body"));
+
+        Actions action = new Actions(driver);
+        action.dragAndDrop(columnA, basket).perform();
+
+        WebElement basketAmountForProduct = driver.findElement(By.cssSelector("column-a"));
+
+        assertEquals("2", basketAmountForProduct.getText());
+
     }
 }
 
@@ -84,22 +103,7 @@ public class Task extends BasePage {
 //        isElementDisabled("id4");
 //    }
 
-//Drag and drop. перетаскивание
-// public void addProductWithDragAndDrop() {
-//    WebElement fieldProductNumber = driver.findElement(By.xpath("//h4[text()='Aparat']/following-sibling::div/input"));
-//    fieldProductNumber.sendKeys("2");
-//
-//    WebElement productImage = driver.findElement(By.xpath("//div[h4='Aparat']/preceding-sibling::div/img"));
-//    WebElement basket = driver.findElement(By.cssSelector(".panel-body"));
-//
-//    Actions action = new Actions(driver);
-//    action.dragAndDrop(productImage, basket).perform();
-//
-//    WebElement basketAmountForProduct = driver.findElement(By.xpath("//span[@data-quantity-for='Aparat']"));
-//
-//    assertEquals("2", basketAmountForProduct.getText());
-//
-// }
+
 //
 //public void moveMouseToWomenMenuAndGoToTopsCategory() {
 //    WebElement womenLink = driver.findElement(By.xpath("//a[text()='Women']"));

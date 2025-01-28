@@ -11,8 +11,13 @@ public class Main extends BasePage {
     }
 
 
-    public Main goToOpensource() {
+    public Main goToOpensource2() {
         driver.get(SITE_URL_2);
+        return this;
+    }
+
+    public Main goToOpensource1() {
+        driver.get(SITE_URL_1);
         return this;
     }
 
